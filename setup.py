@@ -4,7 +4,7 @@ with open("README.md", "r") as f:
     LONG_DESCRIPTION = f.read()
 
 VERSION = "1.0.0"
-DESCRIPTION = "Web fuzzer finding differences based on resposne diffing"
+DESCRIPTION = "Web fuzzer finding differences based on response diffing"
 
 setup(
     name="Diffuzz",
