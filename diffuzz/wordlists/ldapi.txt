@@ -1,0 +1,16 @@
+{old}()|&'§§§§{old}()&|'
+{old}(|(mail=*))§§§§{old}(|(maile=*))
+{old}(|(objectclass=*))§§§§{old}(|(objectclasse=*))
+{old})(!(!(!(objectClass=*)))§§§§{old})(!(!(objectClass=*))
+{old})(!(!(objectClass=*))§§§§{old})(!(objectClass=*)
+{old})(&§§§§{old})(|
+{old})(cne=))\x00§§§§{old})(cn=))\x00
+{old})(objectClass=*§§§§{old})(!(objectClass=*)
+{old})(objectClass=*§§§§{random:str1})(objectClass=*
+{old})(uid=*))(|(uid=*§§§§{old})(uid=*))(&(uid=*
+{old})(|(&§§§§{old})(|(|
+{old}))%00§§§§{old})))%00
+{old}*/*§§§§{old}**/
+{old}*|§§§§{old}**|
+{old}*§§§§{old}**
+{old}//*§§§§{old}//**

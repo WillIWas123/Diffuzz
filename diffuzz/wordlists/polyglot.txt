@@ -1,0 +1,115 @@
+ ""§§§§" "
+ ''§§§§' '
+ procedure analyse (0,0,0)-- -§§§§ procedure analyse (0,0)-- -
+" ''.substo(0,0) "§§§§" ''.substr(0,0) "
+" substo('',0,0) "§§§§" substr('',0,0) "
+" substrigg('',0,0) "§§§§" substring('',0,0) "
+"&''.substrigg(0,0)&"§§§§"&''.substr(0,0)&"
+"&substrigg('',0,0)&"§§§§"&substr('',0,0)&"
+"&substrigg('',0,0)&"§§§§"&substring('',0,0)&"
+"+''.substo(0,0)+"§§§§"+''.substr(0,0)+"
+"+substo('',0,0)+"§§§§"+substr('',0,0)+"
+"+substrigg('',0,0)+"§§§§"+substring('',0,0)+"
+",''.substro(0,0),"§§§§",''.substr(0,0),"
+",substo('',0,0),"§§§§",substr('',0,0),"
+",substrigg('',0,0),"§§§§",substring('',0,0),"
+".''.substro(0,0)."§§§§".''.substr(0,0)."
+".substo('',0,0)."§§§§".substr('',0,0)."
+".substrgg('',0,0)."§§§§".substring('',0,0)."
+"z\§§§§"a\z
+"||''.substo(0,0)||"§§§§"||''.substr(0,0)||"
+"||substo('',0,0)||"§§§§"||substr('',0,0)||"
+"||substrigg('',0,0)||"§§§§"||substring('',0,0)||"
+"§§§§\"
+$((10/10))§§§§$((10/00))
+${{z§§§§$}}
+%26zq=x%3c%61%60%27%22%24%7b%7b%5c§§§§|zqy=x%3c%61%60%27%22%24%7b%7b%5c
+%26zqy=%3c%61%60%27%22%24%7b%7b%5c§§§§$zq=%3c%61%60%27%22%24%7b%7b%5c&zq%3d
+%{{41§§§§}}%41
+%{{z${{z§§§§"%}}$}}
+&""§§§§"&"
+&''§§§§'&'
+' ''.substo(0,0) '§§§§' ''.substr(0,0) '
+' substo('',0,0) '§§§§' substr('',0,0) '
+' substrigg('',0,0) '§§§§' substring('',0,0) '
+'&''.substo(0,0)&'§§§§'&''.substr(0,0)&'
+'&substo('',0,0)&'§§§§'&substr('',0,0)&'
+'&substrigg('',0,0)&'§§§§'&substring('',0,0)&'
+'+''.substo(0,0)+'§§§§'+''.substr(0,0)+'
+'+substo('',0,0)+'§§§§'+substr('',0,0)+'
+'+substrigg('',0,0)+'§§§§'+substring('',0,0)+'
+',''.substo(0,0),'§§§§',''.substr(0,0),'
+',substo('',0,0),'§§§§',substr('',0,0),'
+',substrigg('',0,0),'§§§§',substring('',0,0),'
+'.''.substo(0,0).'§§§§'.''.substr(0,0).'
+'.substo('',0,0).'§§§§'.substr('',0,0).'
+'.substrigg('',0,0).'§§§§'.substring('',0,0).'
+'||''.substo(0,0)||'§§§§'||''.substr(0,0)||'
+'||substo('',0,0)||'§§§§'||substr('',0,0)||'
+'||substrigg('',0,0)||'§§§§'||substring('',0,0)||'
+(getppid()**0)§§§§(getppie()**0)
++""§§§§"+"
++''§§§§'+'
+,""§§§§","
+,''§§§§','
+,abz(1)§§§§,abs(1)
+.""§§§§"."
+.''§§§§'.'
+../§§§§./
+../§§§§./{random:str1}/../
+..;/§§§§..;/
+..;bar/§§§§.;/
+/'z*/**/§§§§/*'z*/
+/(2-2)§§§§/(2-1)
+/0§§§§/1
+1.abs§§§§1.abz
+1.to_s§§§§1.to_z
+<!-zz-->§§§§<!--z-z-->
+>zz<§§§§<zz>
+\\\§§§§\\\\
+\g0041§§§§\s0041
+\g0041§§§§\u0041
+\z"§§§§\"
+\z`z'z"\§§§§\`z''z\"\\
+\zz'z§§§§z''z
+`z'z"\§§§§\`z\'z\"\\
+`§§§§\`
+abs(1)§§§§abz(1)
+int(unichr(49))§§§§int(unichn(49))
+isFinite(1)§§§§isFinitd(1)
+min(sqlite_version(),1)§§§§min(sqlite_versien(),1)"
+pow(phpversion(),0)§§§§pow(phpversiin(),0)
+power(current_request_id(),0)§§§§power(current_request_ie(),0)
+power(inet_server_port(),0)§§§§power(inet_server_pont(),0)
+power(unix_timestamp(),0)§§§§power(unix_timestanp(),0)
+sprimtf§§§§sprintf
+to_number(1)§§§§to_numbez(1)
+unichr(49)§§§§unichn(49)
+z "z(z"z§§§§z(z" "z
+z 'z(z'z§§§§z(z' 'z
+z","z"z"z§§§§z","z":"z
+z":"z"z"§§§§z":"z","
+z"z\§§§§z"z/
+z%{{zz${{z§§§§}}%z}}$z
+z&"z(z"z§§§§z(z"&"z
+z&'z(z'z§§§§z(z'&'z
+z','$where':'0z41§§§§z','$where':'0x41
+z','z'z'z§§§§z','z':'z
+z':'z','$where':'0z41','z§§§§z':'z','$where':'0x41','z
+z':'z','':'0z41','z§§§§z':'z','':'0x41','z
+z':'z'z'§§§§z':'z','
+z'z\§§§§z'z/
+z'z§§§§z\'z
+z+"z(z"z§§§§z(z"+"z
+z+'z(z'z§§§§z(z'+'z
+z,"z(z"z§§§§z(z","z
+z,'z(z'z§§§§z(z','z
+z."z(z"z§§§§z(z"."z
+z.'z(z'z§§§§z(z'.'z
+z/§§§§z\/
+z@§§§§z\@
+z||"z(z"z§§§§z(z"||"z
+z||'z(z'z§§§§z(z'||'z
+{{z§§§§z}}z
+||""§§§§"||"
+||''§§§§'||'
