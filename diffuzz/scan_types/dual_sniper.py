@@ -1,5 +1,6 @@
 from httpdiff import Baseline, Response
 from httpinsert.location import Location
+from httpdiff import Diff, Item
 
 from threading import Thread, BoundedSemaphore, Lock
 import random
@@ -10,8 +11,11 @@ import sys
 
 from urllib.parse import urlunparse, quote,urlparse,unquote
 
+
+
 class DualSniper: # Sniper that compares payload1 to payload2
-    def __init__(self, options):
+    def __init__(self, options, custom_blob = None):
+        self.custom_blob = custom_blob
         self.stop=False
         self.options=options
         self.baselines={}
@@ -23,7 +27,7 @@ class DualSniper: # Sniper that compares payload1 to payload2
     def calibrate_baseline(self,insertion_point):
         if self.stop is True:
             return None
-        baseline = self.baselines.get(insertion_point, Baseline())
+        baseline = self.baselines.get(insertion_point, Baseline(custom_blob=self.custom_blob))
         baseline.verbose = self.options.args.verbose
         baseline.analyze_all = not self.options.args.no_analyze_all
         self.options.logger.verbose(f"Calibration baseline for {insertion_point}")

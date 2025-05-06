@@ -38,12 +38,10 @@ diffs: {'body': [25, 0]}
 ## Help
 
 ```
-usage: diffuzz [-h] (--url URL | --request REQUEST) --wordlist WORDLIST [--method METHOD] [--header HEADER [HEADER ...]]
-               [--body BODY] [--https] [--proxy PROXY] [--threads THREADS] [--allow-redirects] [--verify]
-               [--disable-encoding] [--verbose] [--debug] [--scan-query] [--scan-path] [--scan-headers] [--scan-body]
-               [--scan-type SCAN_TYPE] [--sleep SLEEP] [--calibration-sleep CALIBRATION_SLEEP] [--timeout TIMEOUT]
-               [--ignore-errors] [--no-analyze-all] [--num-calibrations NUM_CALIBRATIONS]
-               [--num-verifications NUM_VERIFICATIONS]
+usage: diffuzz [-h] (--url URL | --request REQUEST) --wordlist WORDLIST [--method METHOD] [--header HEADER [HEADER ...]] [--body BODY] [--https] [--proxy PROXY] [--threads THREADS]
+               [--allow-redirects] [--verify] [--disable-encoding] [--verbose] [--debug] [--scan-query] [--scan-path] [--scan-headers] [--scan-body] [--scan-type SCAN_TYPE]
+               [--sleep SLEEP] [--calibration-sleep CALIBRATION_SLEEP] [--timeout TIMEOUT] [--ignore-errors] [--no-analyze-all] [--num-calibrations NUM_CALIBRATIONS]
+               [--num-verifications NUM_VERIFICATIONS] [--word WORD]
 
 An awesome web fuzzer
 
@@ -79,8 +77,7 @@ scan:
   --scan-headers
   --scan-body
   --scan-type SCAN_TYPE
-                        Specify which type of scan to perform (Sniper, DualSniper, PitchFork, DualPitchFork, ClusterBomb,
-                        DualClusterBomb, BatteringRam, DualBatterinRam)
+                        Specify which type of scan to perform (Sniper, DualSniper, PitchFork, DualPitchFork, ClusterBomb, DualClusterBomb, BatteringRam, DualBatterinRam)
   --sleep SLEEP, -s SLEEP
                         Determines how long (ms) the scanner should sleep between each request during scan
   --calibration-sleep CALIBRATION_SLEEP, -cs CALIBRATION_SLEEP
@@ -94,4 +91,5 @@ analyzer:
                         Specify how many requests should be sent during calibration
   --num-verifications NUM_VERIFICATIONS
                         Specify how many times an endpoint should be verified/re-tested
+  --word WORD           Specify a specific word to search for in responses
 ```

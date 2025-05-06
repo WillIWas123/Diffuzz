@@ -132,6 +132,7 @@ class Options:
         analyzer_parser.add_argument(
             "--num-verifications", type=int, default=3, help="Specify how many times an endpoint should be verified/re-tested"
         )
+        analyzer_parser.add_argument("--word",default="",help="Specify a specific word to search for in responses")
 
         self.args = parser.parse_args()
         self.set_args()

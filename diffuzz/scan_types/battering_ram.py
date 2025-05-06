@@ -11,7 +11,8 @@ import sys
 from urllib.parse import urlunparse, quote,urlparse, unquote
 
 class BatteringRam:
-    def __init__(self, options):
+    def __init__(self, options, custom_blob=None):
+        self.custom_blob=custom_blob
         self.stop=False
         self.options=options
         self.baseline = None
@@ -21,7 +22,7 @@ class BatteringRam:
 
 
     def calibrate_baseline(self,insertion_point):
-        baseline = self.baseline or Baseline()
+        baseline = self.baseline or Baseline(custom_blob=self.custom_blob)
         baseline.verbose = self.options.args.verbose
         baseline.analyze_all = not self.options.args.no_analyze_all
         self.options.logger.verbose(f"Calibration baseline")
