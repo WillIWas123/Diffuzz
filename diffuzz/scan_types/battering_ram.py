@@ -8,7 +8,7 @@ import string
 
 import sys
 
-from urllib.parse import urlunparse, quote,urlparse
+from urllib.parse import urlunparse, quote,urlparse, unquote
 
 class BatteringRam:
     def __init__(self, options):
@@ -133,6 +133,9 @@ class BatteringRam:
 
         jobs=[]
         for payload in wordlist:
+            if payload.startswith("URLENCODED:"):
+                payload = payload.split("URLENCODED")[1]
+                payload = unquote(payload) # URL decoding
             self.job_lock.acquire()
             if self.stop is True:
                 return

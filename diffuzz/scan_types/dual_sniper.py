@@ -8,7 +8,7 @@ import string
 
 import sys
 
-from urllib.parse import urlunparse, quote,urlparse
+from urllib.parse import urlunparse, quote,urlparse,unquote
 
 class DualSniper: # Sniper that compares payload1 to payload2
     def __init__(self, options):
@@ -148,6 +148,9 @@ class DualSniper: # Sniper that compares payload1 to payload2
         jobs=[]
         for insertion_point in insertion_points:
             for word in wordlist:
+                if word.startswith("URLENCODED:"):
+                    word = word.split("URLENCODED")[1]
+                    word = unquote(word) # URL decoding
                 self.job_lock.acquire()
                 payload1,payload2 = word.split("§§§§")
                 if self.stop is True:

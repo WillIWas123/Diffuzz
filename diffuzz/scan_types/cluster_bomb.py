@@ -8,7 +8,7 @@ import string
 
 import sys
 
-from urllib.parse import urlunparse, quote,urlparse
+from urllib.parse import urlunparse, quote,urlparse, unquote
 
 from itertools import permutations
 
@@ -150,11 +150,13 @@ class ClusterBomb:
 
         jobs=[]
         for word in wordlist:
+            if word.startswith("URLENCODED:"):
+                word = word.split("URLENCODED")[1]
+                word = unquote(word) # URL decoding
             payloads = word.split("§§§§")
             if len(insertion_points) != len(payloads):
                 self.options.logger.critical(f"len(insertion points) != len(payloads) ({len(insertion_points)} != {len(payloads)})")
                 break
-            for i in permutations(payloads):
                 self.job_lock.acquire()
                 if self.stop is True:
                     return

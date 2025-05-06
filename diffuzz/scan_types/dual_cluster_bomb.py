@@ -8,7 +8,7 @@ import string
 
 import sys
 
-from urllib.parse import urlunparse, quote,urlparse
+from urllib.parse import urlunparse, quote,urlparse,unquote
 
 from itertools import permutations
 
@@ -169,6 +169,9 @@ class DualClusterBomb:
 
         jobs=[]
         for word in wordlist:
+            if word.startswith("URLENCODED:"):
+                word = word.split("URLENCODED")[1]
+                word = unquote(word) # URL decoding
                                           # p = payload
             payloads = word.split("§§§§") # Expecting p1§§§§p2§§§§p1§§§§p2
             if len(payloads) != len(insertion_points)*2:

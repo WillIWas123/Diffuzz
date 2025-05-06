@@ -8,7 +8,7 @@ import string
 
 import sys
 
-from urllib.parse import urlunparse, quote,urlparse
+from urllib.parse import urlunparse, quote,urlparse,unquote
 
 class Sniper:
     def __init__(self, options):
@@ -134,6 +134,9 @@ class Sniper:
         jobs=[]
         for insertion_point in insertion_points:
             for payload in wordlist:
+                if payload.startswith("URLENCODED:"):
+                    payload = payload.split("URLENCODED")[1]
+                    payload = unquote(payload) # URL decoding
                 self.job_lock.acquire()
                 if self.stop is True:
                     return

@@ -8,7 +8,7 @@ import string
 
 import sys
 
-from urllib.parse import urlunparse, quote,urlparse
+from urllib.parse import urlunparse, quote,urlparse,unquote
 
 class DualPitchFork: 
     def __init__(self, options):
@@ -172,6 +172,9 @@ class DualPitchFork:
 
         jobs=[]
         for word in wordlist:
+            if word.startswith("URLENCODED:"):
+                word = word.split("URLENCODED")[1]
+                word = unquote(word) # URL decoding
             self.job_lock.acquire()
                                           # ip = insertion point, p = payload
             payloads = word.split("§§§§") # Expecting ip1p1§§§§ip2p1§§§§ip1p2§§§§ip2p2
