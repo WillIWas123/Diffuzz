@@ -65,7 +65,7 @@ class Sniper:
 
 
 
-    def check_payload(self,payload1,insertion_point,checks=0):
+    def check_payload(self,payload1,insertion_point,url_encoded, checks=0):
         payload2 = ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20)))
 
         if self.baselines.get(insertion_point) is None:
@@ -104,14 +104,14 @@ class Sniper:
             if self.calibrating.get(insertion_point) is True:
                 self.calibration_lock.acquire() # Wait for calibration to finish
                 self.calibration_lock.release()
-                return self.check_payload(payload1,insertion_point,checks=checks)
+                return self.check_payload(payload1,insertion_point,url_encoded, checks=checks)
             self.calibration_lock.acquire()
             self.calibrating[insertion_point] = True
             self.options.logger.verbose(f"Baseline for {insertion_point} changed, calibrating again - {sections_diffs2_len}")
             self.baselines[insertion_point] = self.calibrate_baseline(insertion_point)
             self.calibration_lock.release()
             self.calibrating[insertion_point] = False
-            return self.check_payload(payload1,insertion_point,checks=checks)
+            return self.check_payload(payload1,insertion_point,url_encoded, checks=check)
 
             
         diffs_sections={}
@@ -123,9 +123,12 @@ class Sniper:
                     diffs_sections[i["section"]] += len(i["diffs"])
 
             self.options.logger.debug(f"Diffs:\n{str(diffs)}\n")
-            self.options.logger.info(f"Found diff\nInsertion point: {insertion_point}\nPayload: {insertion1.payload}\nDiffs: {diffs_sections}\n")
+            payload1 = insertion1.payload
+            if url_encoded is True:
+                payload1 = f"URLENCODED:{quote(payload1)}"
+            self.options.logger.info(f"Found diff\nInsertion point: {insertion_point}\nPayload: {payload1}\nDiffs: {diffs_sections}\n")
         else:
-            return self.check_payload(payload1,insertion_point,checks=checks+1)
+            return self.check_payload(payload1,insertion_point,url_encoded, checks=checks+1)
         self.job_lock.release()
 
 
@@ -136,13 +139,15 @@ class Sniper:
         jobs=[]
         for insertion_point in insertion_points:
             for payload in wordlist:
+                url_encoded=False
                 if payload.startswith("URLENCODED:"):
                     payload = payload.split("URLENCODED:")[1]
                     payload = unquote(payload) # URL decoding
+                    url_encoded=True
                 self.job_lock.acquire()
                 if self.stop is True:
                     return
-                job = Thread(target=self.check_payload,args=(payload,insertion_point))
+                job = Thread(target=self.check_payload,args=(payload,insertion_point,url_encoded))
                 jobs.append(job)
                 job.start()
 

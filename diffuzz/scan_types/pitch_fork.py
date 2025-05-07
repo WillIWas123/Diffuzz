@@ -74,7 +74,7 @@ class PitchFork:
 
 
 
-    def check_payload(self,payloads,insertion_points,checks=0):
+    def check_payload(self,payloads,insertion_points,url_encoded,checks=0):
         payloads2 = [''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20))) for _ in range(len(payloads))]
 
         if self.baseline is None:
@@ -113,14 +113,14 @@ class PitchFork:
             if self.calibrating is True:
                 self.calibration_lock.acquire() # Wait for calibration to finish
                 self.calibration_lock.release()
-                return self.check_payload(payloads,insertion_points,checks=checks)
+                return self.check_payload(payloads,insertion_points,url_encoded,checks=checks)
             self.calibration_lock.acquire()
             self.calibrating = True
             self.options.logger.verbose(f"Baseline changed, calibrating again - {sections_diffs2_len}")
             self.baseline = self.calibrate_baseline(insertion_points)
             self.calibration_lock.release()
             self.calibrating = False
-            return self.check_payload(payloads,insertion_points,checks=checks)
+            return self.check_payload(payloads,insertion_points,url_encoded,checks=checks)
 
             
         if checks >= self.options.args.num_verifications:
@@ -131,6 +131,8 @@ class PitchFork:
                 sections_diffs_len[i["section"]] += len(i["diffs"])
             payloads_out = ""
             for c,i in enumerate(insertion_payloads):
+                if url_encoded is True:
+                    i="URLENCODED:"+quote(i)
                 payloads_out+=f"Payload{c+1}: {i}\n"
 
 
@@ -139,7 +141,7 @@ class PitchFork:
 
 
         else:
-            return self.check_payload(payloads,insertion_points,checks=checks+1)
+            return self.check_payload(payloads,insertion_points,url_encoded,checks=checks+1)
         self.job_lock.release()
 
 
@@ -149,9 +151,11 @@ class PitchFork:
 
         jobs=[]
         for word in wordlist:
+            url_encoded=False
             if word.startswith("URLENCODED:"):
                 word = word.split("URLENCODED:")[1]
                 word = unquote(word) # URL decoding
+                url_encoded=True
             self.job_lock.acquire()
             payloads = word.split("§§§§")
             if len(insertion_points) != len(payloads):
@@ -159,7 +163,7 @@ class PitchFork:
                 break
             if self.stop is True:
                 return
-            job = Thread(target=self.check_payload,args=(payloads,insertion_points))
+            job = Thread(target=self.check_payload,args=(payloads,insertion_points,url_encoded))
             jobs.append(job)
             job.start()
 

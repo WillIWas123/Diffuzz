@@ -69,7 +69,7 @@ class DualSniper: # Sniper that compares payload1 to payload2
 
 
 
-    def check_payload(self,payload1,payload2,insertion_point,checks=0):
+    def check_payload(self,payload1,payload2,insertion_point,url_encoded,checks=0):
         payload3 = ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20)))
 
         if self.baselines.get(insertion_point) is None:
@@ -116,14 +116,14 @@ class DualSniper: # Sniper that compares payload1 to payload2
             if self.calibrating.get(insertion_point) is True:
                 self.calibration_lock.acquire() # Wait for calibration to finish
                 self.calibration_lock.release()
-                return self.check_payload(payload1,payload2,insertion_point,checks=checks)
+                return self.check_payload(payload1,payload2,insertion_point,url_encoded,checks=checks)
             self.calibration_lock.acquire()
             self.calibrating[insertion_point] = True
             self.options.logger.verbose(f"Baseline for {insertion_point} changed, calibrating again - {sections_diffs3_len}")
             self.baselines[insertion_point] = self.calibrate_baseline(insertion_point)
             self.calibration_lock.release()
             self.calibrating[insertion_point] = False
-            return self.check_payload(payload1,payload2,insertion_point,checks=checks)
+            return self.check_payload(payload1,payload2,insertion_point,url_encoded,checks=checks)
 
             
         if checks >= self.options.args.num_verifications:
@@ -137,11 +137,16 @@ class DualSniper: # Sniper that compares payload1 to payload2
                     sections_diffs_len[i["section"]] = [0,0]
                 sections_diffs_len[i["section"]][1] += len(i["diffs"])
 
+            payload1 = insertion1.payload
+            payload2 = insertion2.payload
+            if url_encoded is True:
+                payload1 = f"URLENCODED:{quote(payload1)}"
+                payload2 = f"URLENCODED:{quote(payload2)}"
             self.options.logger.debug(f"Diffs:\n{str(diffs)}\nDiffs2:\n{str(diffs2)}\n")
-            self.options.logger.info(f"Found diff\nInsertion point: {insertion_point}\nPayload1: {insertion1.payload}\nPayload2: {insertion2.payload}\ndiffs: {sections_diffs_len}\n")
+            self.options.logger.info(f"Found diff\nInsertion point: {insertion_point}\nPayload1: {payload1}\nPayload2: {payload2}\ndiffs: {sections_diffs_len}\n")
 
         else:
-            return self.check_payload(payload1,payload2,insertion_point,checks=checks+1)
+            return self.check_payload(payload1,payload2,insertion_point,url_encoded,checks=checks+1)
         self.job_lock.release()
 
 
@@ -152,14 +157,16 @@ class DualSniper: # Sniper that compares payload1 to payload2
         jobs=[]
         for insertion_point in insertion_points:
             for word in wordlist:
+                url_encoded=False
                 if word.startswith("URLENCODED:"):
                     word = word.split("URLENCODED:")[1]
                     word = unquote(word) # URL decoding
+                    url_encoded=True
                 self.job_lock.acquire()
                 payload1,payload2 = word.split("§§§§")
                 if self.stop is True:
                     return
-                job = Thread(target=self.check_payload,args=(payload1,payload2,insertion_point))
+                job = Thread(target=self.check_payload,args=(payload1,payload2,insertion_point,url_encoded))
                 jobs.append(job)
                 job.start()
 

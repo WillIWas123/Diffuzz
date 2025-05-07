@@ -72,7 +72,7 @@ class DualPitchFork:
 
 
 
-    def check_payload(self,payloads,insertion_points,checks=0):
+    def check_payload(self,payloads,insertion_points,url_encoded,checks=0):
         payloads3 = [''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20))) for _ in range(len(insertion_points))]
 
         if self.baseline is None:
@@ -130,14 +130,14 @@ class DualPitchFork:
             if self.calibrating is True:
                 self.calibration_lock.acquire() # Wait for calibration to finish
                 self.calibration_lock.release()
-                return self.check_payload(payloads,insertion_points,checks=checks)
+                return self.check_payload(payloads,insertion_points,url_encoded,checks=checks)
             self.calibration_lock.acquire()
             self.calibrating = True
             self.options.logger.verbose(f"Baseline changed, calibrating again - {sections_diffs3_len}")
             self.baseline = self.calibrate_baseline(insertion_points)
             self.calibration_lock.release()
             self.calibrating = False
-            return self.check_payload(payloads,insertion_points,checks=checks)
+            return self.check_payload(payloads,insertion_points,url_encoded,checks=checks)
 
             
         if checks >= self.options.args.num_verifications:
@@ -153,10 +153,14 @@ class DualPitchFork:
 
             payloads1_out = ""
             for c,i in enumerate(insertion_payloads):
+                if url_encoded is True:
+                    i="URLENCODED:"+quote(i)
                 payloads1_out+=f"Payload{c+1}: {i}\n"
 
             payloads2_out = ""
             for c,i in enumerate(insertion_payloads2):
+                if url_encoded is True:
+                    i="URLENCODED:"+quote(i)
                 payloads2_out+=f"Payload{c+1}: {i}\n"
 
 
@@ -164,7 +168,7 @@ class DualPitchFork:
             self.options.logger.info(f"Found diff\nPayload set 1:\n{payloads1_out}\nPayload set 2:\n{payloads2_out}diffs: {sections_diffs_len}\n")
 
         else:
-            return self.check_payload(payloads,insertion_points,checks=checks+1)
+            return self.check_payload(payloads,insertion_points,url_encoded,checks=checks+1)
         self.job_lock.release()
 
 
@@ -174,9 +178,11 @@ class DualPitchFork:
 
         jobs=[]
         for word in wordlist:
+            url_encoded=False
             if word.startswith("URLENCODED:"):
                 word = word.split("URLENCODED:")[1]
                 word = unquote(word) # URL decoding
+                url_encoded=True
             self.job_lock.acquire()
                                           # ip = insertion point, p = payload
             payloads = word.split("§§§§") # Expecting ip1p1§§§§ip2p1§§§§ip1p2§§§§ip2p2
@@ -186,7 +192,7 @@ class DualPitchFork:
 
             if self.stop is True:
                 return
-            job = Thread(target=self.check_payload,args=(payloads,insertion_points))
+            job = Thread(target=self.check_payload,args=(payloads,insertion_points,url_encoded))
             jobs.append(job)
             job.start()
 

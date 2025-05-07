@@ -65,7 +65,7 @@ class BatteringRam:
 
 
 
-    def check_payload(self,payload1,insertion_points,checks=0):
+    def check_payload(self,payload1,insertion_points,url_encoded,checks=0):
         payload2 = ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20)))
 
         if self.baseline is None:
@@ -105,14 +105,14 @@ class BatteringRam:
             if self.calibrating is True:
                 self.calibration_lock.acquire() # Wait for calibration to finish
                 self.calibration_lock.release()
-                return self.check_payload(payload1,insertion_points,checks=checks)
+                return self.check_payload(payload1,insertion_points,url_encoded,checks=checks)
             self.calibration_lock.acquire()
             self.calibrating = True
             self.options.logger.verbose(f"Baseline changed, calibrating again - {sections_diffs2_len}")
             self.baseline = self.calibrate_baseline(insertion_points)
             self.calibration_lock.release()
             self.calibrating = False
-            return self.check_payload(payload1,insertion_points,checks=checks)
+            return self.check_payload(payload1,insertion_points,url_encoded,checks=checks)
 
             
         if checks >= self.options.args.num_verifications:
@@ -123,9 +123,12 @@ class BatteringRam:
                 diffs_sections[i["section"]] += len(i["diffs"])
 
             self.options.logger.debug(f"Diffs:\n{str(diffs)}\n")
-            self.options.logger.info(f"Found diff\nPayload: {insertion1.payload}\nDiffs: {diffs_sections}\n")
+            payload1 = insertion1.payload
+            if url_encoded:
+                payload1 = f"URLENCODED:{quote(payload1)}"
+            self.options.logger.info(f"Found diff\nPayload: {payload1}\nDiffs: {diffs_sections}\n")
         else:
-            return self.check_payload(payload1,insertion_points,checks=checks+1)
+            return self.check_payload(payload1,insertion_points,url_encoded,checks=checks+1)
         self.job_lock.release()
 
 
@@ -135,13 +138,15 @@ class BatteringRam:
 
         jobs=[]
         for payload in wordlist:
+            url_encoded=False
             if payload.startswith("URLENCODED:"):
                 payload = payload.split("URLENCODED:")[1]
                 payload = unquote(payload) # URL decoding
+                url_encoded=True
             self.job_lock.acquire()
             if self.stop is True:
                 return
-            job = Thread(target=self.check_payload,args=(payload,insertion_points))
+            job = Thread(target=self.check_payload,args=(payload,insertion_points,url_encoded))
             jobs.append(job)
             job.start()
 
