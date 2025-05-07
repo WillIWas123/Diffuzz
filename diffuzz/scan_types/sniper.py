@@ -111,7 +111,7 @@ class Sniper:
             self.baselines[insertion_point] = self.calibrate_baseline(insertion_point)
             self.calibration_lock.release()
             self.calibrating[insertion_point] = False
-            return self.check_payload(payload1,insertion_point,url_encoded, checks=check)
+            return self.check_payload(payload1,insertion_point,url_encoded, checks=checks)
 
             
         diffs_sections={}
