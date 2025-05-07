@@ -1,6 +1,5 @@
 from httpdiff import Baseline, Response
 from httpinsert.location import Location
-from httpdiff import Diff, Item
 
 from threading import Thread, BoundedSemaphore, Lock
 import random
@@ -153,7 +152,7 @@ class DualSniper: # Sniper that compares payload1 to payload2
         for insertion_point in insertion_points:
             for word in wordlist:
                 if word.startswith("URLENCODED:"):
-                    word = word.split("URLENCODED")[1]
+                    word = word.split("URLENCODED:")[1]
                     word = unquote(word) # URL decoding
                 self.job_lock.acquire()
                 payload1,payload2 = word.split("§§§§")

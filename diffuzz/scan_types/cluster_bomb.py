@@ -152,7 +152,7 @@ class ClusterBomb:
         jobs=[]
         for word in wordlist:
             if word.startswith("URLENCODED:"):
-                word = word.split("URLENCODED")[1]
+                word = word.split("URLENCODED:")[1]
                 word = unquote(word) # URL decoding
             payloads = word.split("§§§§")
             if len(insertion_points) != len(payloads):

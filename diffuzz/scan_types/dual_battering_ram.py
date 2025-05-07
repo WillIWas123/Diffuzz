@@ -150,7 +150,7 @@ class DualBatteringRam:
         jobs=[]
         for word in wordlist:
             if word.startswith("URLENCODED:"):
-                word = word.split("URLENCODED")[1]
+                word = word.split("URLENCODED:")[1]
                 word = unquote(word) # URL decoding
             self.job_lock.acquire()
             payload1,payload2 = word.split("§§§§")

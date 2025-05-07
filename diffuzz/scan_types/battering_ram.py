@@ -135,7 +135,7 @@ class BatteringRam:
         jobs=[]
         for payload in wordlist:
             if payload.startswith("URLENCODED:"):
-                payload = payload.split("URLENCODED")[1]
+                payload = payload.split("URLENCODED:")[1]
                 payload = unquote(payload) # URL decoding
             self.job_lock.acquire()
             if self.stop is True:

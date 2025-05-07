@@ -51,7 +51,7 @@ class Sniper:
         if error:
             self.options.logger.debug(error)
         baseline.add_response(resp,response_time,error,payload)
-        self.options.logger.verbos(f"Done calibrating for {insertion_point}")
+        self.options.logger.verbose(f"Done calibrating for {insertion_point}")
         return baseline
 
 
@@ -136,7 +136,7 @@ class Sniper:
         for insertion_point in insertion_points:
             for payload in wordlist:
                 if payload.startswith("URLENCODED:"):
-                    payload = payload.split("URLENCODED")[1]
+                    payload = payload.split("URLENCODED:")[1]
                     payload = unquote(payload) # URL decoding
                 self.job_lock.acquire()
                 if self.stop is True:
