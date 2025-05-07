@@ -122,6 +122,7 @@ class Sniper:
                         diffs_sections[i["section"]] = 0
                     diffs_sections[i["section"]] += len(i["diffs"])
 
+            self.options.logger.debug(f"Diffs:\n{str(diffs)}\n")
             self.options.logger.info(f"Found diff\nInsertion point: {insertion_point}\nPayload: {insertion1.payload}\nDiffs: {diffs_sections}\n")
         else:
             return self.check_payload(payload1,insertion_point,checks=checks+1)

@@ -137,6 +137,7 @@ class ClusterBomb:
                 payloads_out+=f"Payload{c+1}: {i}\n"
 
 
+            self.options.logger.debug(f"Diffs:\n{str(diffs)}\n")
             self.options.logger.info(f"Found diff\n{payloads_out}diffs: {sections_diffs_len}\n")
 
 
@@ -158,12 +159,12 @@ class ClusterBomb:
             if len(insertion_points) != len(payloads):
                 self.options.logger.critical(f"len(insertion points) != len(payloads) ({len(insertion_points)} != {len(payloads)})")
                 break
-                self.job_lock.acquire()
-                if self.stop is True:
-                    return
-                job = Thread(target=self.check_payload,args=(i,insertion_points))
-                jobs.append(job)
-                job.start()
+            self.job_lock.acquire()
+            if self.stop is True:
+                return
+            job = Thread(target=self.check_payload,args=(payloads,insertion_points))
+            jobs.append(job)
+            job.start()
 
         for job in jobs:
             job.join()

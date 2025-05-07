@@ -116,7 +116,7 @@ class PitchFork:
                 return self.check_payload(payloads,insertion_points,checks=checks)
             self.calibration_lock.acquire()
             self.calibrating = True
-            self.options.logger.verbose(f"Baseline changed, calibrating again - {sections_diffs3_len}")
+            self.options.logger.verbose(f"Baseline changed, calibrating again - {sections_diffs2_len}")
             self.baseline = self.calibrate_baseline(insertion_points)
             self.calibration_lock.release()
             self.calibrating = False
@@ -134,6 +134,7 @@ class PitchFork:
                 payloads_out+=f"Payload{c+1}: {i}\n"
 
 
+            self.options.logger.debug(f"Diffs:\n{str(diffs)}\n")
             self.options.logger.info(f"Found diff\n{payloads_out}diffs: {sections_diffs_len}\n")
 
 

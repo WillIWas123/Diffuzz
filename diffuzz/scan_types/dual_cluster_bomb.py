@@ -157,6 +157,7 @@ class DualClusterBomb:
                 payloads2_out+=f"Payload{c+1}: {i}\n"
 
 
+            self.options.logger.debug(f"Diffs:\n{str(diffs)}\nDiffs2:\n{str(diffs2)}\n")
             self.options.logger.info(f"Found diff\nPayload set 1:\n{payloads1_out}\nPayload set 2:\n{payloads2_out}diffs: {sections_diffs_len}\n")
 
         else:

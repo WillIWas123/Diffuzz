@@ -137,6 +137,7 @@ class DualSniper: # Sniper that compares payload1 to payload2
                     sections_diffs_len[i["section"]] = [0,0]
                 sections_diffs_len[i["section"]][1] += len(i["diffs"])
 
+            self.options.logger.debug(f"Diffs:\n{str(diffs)}\nDiffs2:\n{str(diffs2)}\n")
             self.options.logger.info(f"Found diff\nInsertion point: {insertion_point}\nPayload1: {insertion1.payload}\nPayload2: {insertion2.payload}\ndiffs: {sections_diffs_len}\n")
 
         else:
