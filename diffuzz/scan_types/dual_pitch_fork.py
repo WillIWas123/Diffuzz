@@ -27,9 +27,9 @@ class DualPitchFork:
         baseline.analyze_all = not self.options.args.no_analyze_all
         self.options.logger.verbose("Calibration baseline")
 
+        sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
         for i in range(self.options.args.num_calibrations):
             payloads = [''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20))) for _ in range(len(insertion_points))]
-            sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
             time.sleep(sleep_time)
             resp,response_time,error,_= self.send(insertion_points,payloads)
             if error and self.options.args.ignore_errors is False:
@@ -41,7 +41,7 @@ class DualPitchFork:
             for j in payloads:
                 baseline.add_response(resp,response_time,error,j)
 
-        time.sleep(self.options.args.sleep)
+        time.sleep(sleep_time)
         resp, response_time, error,_= self.send(insertion_points,payloads)
         if error and self.options.args.ignore_errors is False:
             self.stop=True
@@ -56,7 +56,7 @@ class DualPitchFork:
 
 
     def send(self,insertion_points,payloads):
-        time.sleep(self.options.args.sleep)
+        time.sleep(self.options.args.sleep/1000)
         insertions = []
         for payload, insertion_point in zip(payloads, insertion_points):
             insertion = insertion_point.insert(payload,self.options.req,format_payload=True,default_encoding = not self.options.args.disable_encoding)

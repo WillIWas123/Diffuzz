@@ -27,9 +27,9 @@ class DualBatteringRam:
         baseline.analyze_all = not self.options.args.no_analyze_all
         self.options.logger.verbose("Calibration baseline")
 
+        sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
         for i in range(self.options.args.num_calibrations):
             payload= ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20)))
-            sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
             time.sleep(sleep_time)
             resp,response_time,error,_= self.send(insertion_point,payload)
             if error and self.options.args.ignore_errors is False:
@@ -40,7 +40,7 @@ class DualBatteringRam:
                 self.options.logger.debug(error)
             baseline.add_response(resp,response_time,error,payload)
 
-        time.sleep(self.options.args.sleep)
+        time.sleep(sleep_time)
         resp, response_time, error,_= self.send(insertion_point,payload)
         if error and self.options.args.ignore_errors is False:
             self.stop=True
@@ -55,7 +55,7 @@ class DualBatteringRam:
 
 
     def send(self,insertion_points,payload):
-        time.sleep(self.options.args.sleep)
+        time.sleep(self.options.args.sleep/1000)
         insertions = []
         for insertion_point in insertion_points:
             insertion = insertion_point.insert(payload,self.options.req,format_payload=True,default_encoding=not self.options.args.disable_encoding)

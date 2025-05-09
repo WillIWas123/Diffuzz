@@ -29,9 +29,9 @@ class Sniper:
         baseline.analyze_all = not self.options.args.no_analyze_all
         self.options.logger.verbose(f"Calibration baseline for {insertion_point}")
 
+        sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
         for i in range(self.options.args.num_calibrations):
             payload= ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20)))
-            sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
             time.sleep(sleep_time)
             resp,response_time,error,_= self.send(insertion_point,payload)
             if error and self.options.args.ignore_errors is False:
@@ -42,7 +42,7 @@ class Sniper:
                 self.options.logger.debug(error)
             baseline.add_response(resp,response_time,error,payload)
 
-        time.sleep(self.options.args.sleep)
+        time.sleep(sleep_time)
         resp, response_time, error,_= self.send(insertion_point,payload)
         if error and self.options.args.ignore_errors is False:
             self.stop=True
@@ -57,7 +57,7 @@ class Sniper:
 
 
     def send(self,insertion_point,payload):
-        time.sleep(self.options.args.sleep)
+        time.sleep(self.options.args.sleep/1000)
         insertion = insertion_point.insert(payload,self.options.req,format_payload=True,default_encoding=not self.options.args.disable_encoding)
         resp,response_time,error = self.options.req.send(debug=self.options.args.debug,insertions=[insertion],allow_redirects=self.options.args.allow_redirects,timeout=self.options.args.timeout,verify=self.options.args.verify,proxies=self.options.proxies)
         resp=Response(resp)
