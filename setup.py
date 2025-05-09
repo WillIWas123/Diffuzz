@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as f:
     LONG_DESCRIPTION = f.read()
 
-VERSION = "1.4.1"
+VERSION = "1.4.2"
 DESCRIPTION = "Web fuzzer finding differences based on response diffing"
 
 setup(

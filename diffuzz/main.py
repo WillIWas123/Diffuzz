@@ -21,7 +21,7 @@ def main():
     insertion_points = find_insertion_points(options.req,default=True,location="Manual")
     if len(insertion_points) == 0:
         if options.args.scan_path:
-            insertion_points.extend(find_insertion_points(options.req,default=True,location="Path"))
+            insertion_points.extend(find_insertion_points(options.req,default=False,location="Path"))
         if options.args.scan_query:
             insertion_points.extend(find_insertion_points(options.req,default=True,location="Query"))
         if options.args.scan_headers:
