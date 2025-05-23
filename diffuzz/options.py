@@ -173,8 +173,3 @@ class Options:
             session = requests.Session()
             session.cookies.set_policy(DefaultCookiePolicy(allowed_domains=[]))
             self.req.sessions.append(session)
-
-
-
-        if self.args.debug:
-            setattr(self.args, "verbose", True)
