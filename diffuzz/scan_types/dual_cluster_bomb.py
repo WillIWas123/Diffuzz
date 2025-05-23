@@ -40,8 +40,6 @@ class DualClusterBomb:
                 self.stop=True
                 self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
                 return None
-            if error:
-                self.options.logger.debug(error)
             for j in payloads:
                 baseline.add_response(resp,response_time,error,j)
 
@@ -50,8 +48,6 @@ class DualClusterBomb:
         if error and self.options.args.ignore_errors is False:
             self.stop=True
             self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
-        if error:
-            self.options.logger.debug(error)
         for j in payloads:
             baseline.add_response(resp,response_time,error,j)
         self.options.logger.verbose("Done calibrating")
@@ -68,6 +64,9 @@ class DualClusterBomb:
         if self.stop is True:
             return None, 0.0, b"self.stop is True, terminating execution", []
         resp,response_time,error = self.options.req.send(debug=self.options.args.debug,insertions=insertions,allow_redirects=self.options.args.allow_redirects,timeout=self.options.args.timeout,verify=self.options.args.verify,proxies=self.options.proxies)
+        if error:
+            self.options.logger.debug(f"Error occured while sending request: {error}")
+            error = str(type(error)).encode()
         resp=Response(resp)
         insertion_payloads = []
         for insertion in insertions:
@@ -91,8 +90,6 @@ class DualClusterBomb:
 
         payloads1 = [i.split("§§§§")[0] for i in payload_sets]
         resp,response_time,error,insertion_payloads = self.send(insertion_points,payloads1)
-        if error:
-            self.options.logger.debug(error)
 
 
         diffs = list(baseline.find_diffs(resp,response_time,error))
@@ -100,8 +97,6 @@ class DualClusterBomb:
 
         payloads2 = [i.split("§§§§")[1] for i in payload_sets]
         resp2,response_time2,error2,insertion_payloads2 = self.send(insertion_points,payloads2)
-        if error2:
-            self.options.logger.debug(error2)
 
         diffs2 = list(baseline.find_diffs(resp2,response_time2,error2))
 
@@ -110,8 +105,6 @@ class DualClusterBomb:
             return
 
         resp3,response_time3,error3,_= self.send(insertion_points,payloads3)
-        if error3:
-            self.options.logger.debug(error3)
 
         if self.stop is True:
             self.job_lock.release()

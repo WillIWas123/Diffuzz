@@ -36,8 +36,6 @@ class DualBatteringRam:
                 self.stop=True
                 self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
                 return None
-            if error:
-                self.options.logger.debug(error)
             baseline.add_response(resp,response_time,error,payload)
 
         time.sleep(sleep_time)
@@ -46,8 +44,6 @@ class DualBatteringRam:
             self.stop=True
             self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
             return None
-        if error:
-            self.options.logger.debug(error)
         baseline.add_response(resp,response_time,error,payload)
         self.options.logger.verbose("Done calibrating")
         return baseline
@@ -63,6 +59,9 @@ class DualBatteringRam:
         if self.stop is True:
             return None, 0.0, b"self.stop is True, terminating execution", insertion
         resp,response_time,error = self.options.req.send(debug=self.options.args.debug,insertions=insertions,allow_redirects=self.options.args.allow_redirects,timeout=self.options.args.timeout,verify=self.options.args.verify,proxies=self.options.proxies)
+        if error:
+            self.options.logger.debug(f"Error occured while sending request: {error}")
+            error = str(type(error)).encode()
         resp=Response(resp)
         return resp,response_time,error,insertion
 
@@ -82,12 +81,8 @@ class DualBatteringRam:
             return
 
         resp,response_time,error,insertion1= self.send(insertion_points,payload1)
-        if error:
-            self.options.logger.debug(error)
 
         resp2,response_time2,error2,insertion2 = self.send(insertion_points,payload2)
-        if error2:
-            self.options.logger.debug(error2)
 
         
         diffs = list(baseline.find_diffs(resp,response_time,error))
@@ -97,8 +92,6 @@ class DualBatteringRam:
             self.job_lock.release()
             return
         resp3,response_time3,error3,_= self.send(insertion_points,payload3)
-        if error3:
-            self.options.logger.debug(error3)
 
         if self.stop is True:
             self.job_lock.release()

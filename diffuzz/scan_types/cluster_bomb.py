@@ -38,8 +38,6 @@ class ClusterBomb:
                 self.stop=True
                 self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
                 return
-            if error:
-                self.options.logger.debug(error)
             for j in payloads:
                 baseline.add_response(resp,response_time,error,j)
 
@@ -49,8 +47,6 @@ class ClusterBomb:
             self.stop=True
             self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
             return
-        if error:
-            self.options.logger.debug(error)
         for j in payloads:
             baseline.add_response(resp,response_time,error,j)
         self.options.logger.verbose("Done calibrating")
@@ -67,6 +63,10 @@ class ClusterBomb:
         if self.stop is True:
             return None, 0.0, b"self.stop is True, terminating execution",[]
         resp,response_time,error = self.options.req.send(debug=self.options.args.debug,insertions=insertions,allow_redirects=self.options.args.allow_redirects,timeout=self.options.args.timeout,verify=self.options.args.verify,proxies=self.options.proxies)
+        if error:
+            self.options.logger.debug(f"Error occured while sending request: {error}")
+            error = str(type(error)).encode()
+
         resp=Response(resp)
         insertion_payloads = []
         for insertion in insertions:
@@ -89,9 +89,6 @@ class ClusterBomb:
             return
 
         resp,response_time,error,insertion_payloads = self.send(insertion_points,payloads)
-        if error:
-            self.options.logger.debug(error)
-
         
         diffs = list(baseline.find_diffs(resp,response_time,error))
 
@@ -99,8 +96,6 @@ class ClusterBomb:
             self.job_lock.release()
             return
         resp2,response_time2,error2,_= self.send(insertion_points,payloads2)
-        if error2:
-            self.options.logger.debug(error2)
 
         if self.stop is True:
             self.job_lock.release()

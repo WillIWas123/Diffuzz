@@ -36,8 +36,6 @@ class BatteringRam:
                 self.stop=True
                 self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
                 return None
-            if error:
-                self.options.logger.debug(error)
             baseline.add_response(resp,response_time,error,payload)
 
         time.sleep(sleep_time)
@@ -45,8 +43,6 @@ class BatteringRam:
         if error and self.options.args.ignore_errors is False:
             self.stop=True
             self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
-        if error:
-            self.options.logger.debug(error)
         baseline.add_response(resp,response_time,error,payload)
         self.options.logger.verbose("Done calibrating")
         return baseline
@@ -60,6 +56,10 @@ class BatteringRam:
             insertion = insertion_point.insert(payload,self.options.req,format_payload=True,default_encoding=not self.options.args.disable_encoding)
             insertions.append(insertion)
         resp,response_time,error = self.options.req.send(debug=self.options.args.debug,insertions=insertions,allow_redirects=self.options.args.allow_redirects,timeout=self.options.args.timeout,verify=self.options.args.verify,proxies=self.options.proxies)
+        if error:
+            error = str(type(error)).encode()
+            self.options.logger.debug(f"Error occured while sending request: {error}")
+
         resp=Response(resp)
         return resp,response_time,error,insertion
 
@@ -79,8 +79,6 @@ class BatteringRam:
             return
 
         resp,response_time,error,insertion1 = self.send(insertion_points,payload1)
-        if error:
-            self.options.logger.debug(error)
 
         diffs = list(self.baseline.find_diffs(resp,response_time,error))
 
@@ -88,8 +86,6 @@ class BatteringRam:
             self.job_lock.release()
             return
         resp2,response_time2,error2,_= self.send(insertion_points,payload2)
-        if error2:
-            self.options.logger.debug(error2)
 
         if self.stop is True:
             self.job_lock.release()

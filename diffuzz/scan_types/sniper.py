@@ -38,8 +38,6 @@ class Sniper:
                 self.stop=True
                 self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
                 return None
-            if error:
-                self.options.logger.debug(error)
             baseline.add_response(resp,response_time,error,payload)
 
         time.sleep(sleep_time)
@@ -48,8 +46,6 @@ class Sniper:
             self.stop=True
             self.options.logger.critical(f"Error occurred during calibration, stopping scan as ignore-errors is not set - {error}")
             return None
-        if error:
-            self.options.logger.debug(error)
         baseline.add_response(resp,response_time,error,payload)
         self.options.logger.verbose(f"Done calibrating for {insertion_point}")
         return baseline
@@ -60,6 +56,9 @@ class Sniper:
         time.sleep(self.options.args.sleep/1000)
         insertion = insertion_point.insert(payload,self.options.req,format_payload=True,default_encoding=not self.options.args.disable_encoding)
         resp,response_time,error = self.options.req.send(debug=self.options.args.debug,insertions=[insertion],allow_redirects=self.options.args.allow_redirects,timeout=self.options.args.timeout,verify=self.options.args.verify,proxies=self.options.proxies)
+        if error:
+            self.options.logger.debug(f"Error occured while sending request: {error}")
+            error = str(type(error)).encode()
         resp=Response(resp)
         return resp,response_time,error,insertion
 
@@ -79,8 +78,6 @@ class Sniper:
             return
 
         resp,response_time,error,insertion1= self.send(insertion_point,payload1)
-        if error:
-            self.options.logger.debug(error)
 
         diffs = list(baseline.find_diffs(resp,response_time,error))
 
@@ -88,8 +85,6 @@ class Sniper:
             self.job_lock.release()
             return
         resp2,response_time2,error2,_= self.send(insertion_point,payload2)
-        if error2:
-            self.options.logger.debug(error2)
 
         if self.stop is True:
             self.job_lock.release()
