@@ -28,6 +28,7 @@ class BatteringRam:
         self.options.logger.verbose(f"Calibration baseline")
 
         sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
+        payload= ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20))) # Generating in case num_calibrations is 0
         for i in range(self.options.args.num_calibrations):
             payload= ''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20)))
             time.sleep(sleep_time)

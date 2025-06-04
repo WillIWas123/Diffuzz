@@ -30,6 +30,7 @@ class ClusterBomb:
         self.options.logger.verbose("Calibration baseline")
 
         sleep_time = self.options.args.calibration_sleep/1000 or self.options.args.sleep/1000
+        payloads = [''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20))) for _ in range(len(insertion_points))] # Generating in case num_calibrations is 0
         for i in range(self.options.args.num_calibrations):
             payloads = [''.join(random.choices(string.ascii_uppercase + string.digits, k=random.randint(10,20))) for _ in range(len(insertion_points))]
             time.sleep(sleep_time)
