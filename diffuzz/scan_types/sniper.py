@@ -111,11 +111,10 @@ class Sniper:
             
         diffs_sections={}
         if checks >= self.options.args.num_verifications:
-            if self.options.args.verbose:
-                for i in diffs:
-                    if i["section"] not in diffs_sections.keys():
-                        diffs_sections[i["section"]] = 0
-                    diffs_sections[i["section"]] += len(i["diffs"])
+            for i in diffs:
+                if i["section"] not in diffs_sections.keys():
+                    diffs_sections[i["section"]] = 0
+                diffs_sections[i["section"]] += len(i["diffs"])
 
             self.options.logger.debug(f"Diffs:\n{str(diffs)}\n")
             payload1 = insertion1.payload
